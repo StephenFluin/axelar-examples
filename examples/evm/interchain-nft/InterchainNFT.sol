@@ -9,12 +9,10 @@ import { IERC20 } from '@axelar-network/axelar-gmp-sdk-solidity/contracts/interf
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import { StringToAddress, AddressToString } from '@axelar-network/axelar-gmp-sdk-solidity/contracts/utils/AddressString.sol';
 
 
 contract InterchainNFT is AxelarExecutable, ERC721, Ownable {
     using Counters for Counters.Counter;
-    using StringToAddress for string;
 
     Counters.Counter public tokenIdCounter;
 
@@ -36,7 +34,7 @@ contract InterchainNFT is AxelarExecutable, ERC721, Ownable {
         uint256 tokenId = tokenIdCounter.current();
         tokenIdCounter.increment();
         _safeMint(to, tokenId);
-        _tokenURIs[tokenId] = "https://example.org/nft.json";
+        _tokenURIs[tokenId] = "https://fluin.io/assets/speakers/0.json";
     }
 
     function tokenURI(uint256 tokenId)

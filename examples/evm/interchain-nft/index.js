@@ -37,9 +37,9 @@ async function execute(chains, wallet, options) {
     await logValue();
 
 
-    console.log('---Unconnected NFT Changezzz---');
+    console.log('---Unconnected NFT Change---');
     const fee = await calculateBridgeFee(source, destination);
-    let tx = await source.contract.update('https://new.example.com/nft.json',0);
+    let tx = await source.contract.update('https://fluin.io/assets/speakers/3.json',0);
     console.log('tx is',typeof tx);
     console.log('that was the tx!');
     await tx.wait();
@@ -68,7 +68,7 @@ async function execute(chains, wallet, options) {
     await logValue();
 
     console.log('--- After final Update --');
-    let tx3 = await source.contract.update('https://new2.example.com/nft.json',0, {
+    let tx3 = await source.contract.update('https://fluin.io/assets/speakers/4.json',0, {
         value: fee,
     });
     await tx3.wait();
