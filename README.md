@@ -21,7 +21,7 @@ git clone https://github.com/axelarnetwork/axelar-examples.git
 2. Install dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
 3. Compile smart contracts:
