@@ -95,6 +95,7 @@ contract InterchainNFT is AxelarExecutable, ERC721, Ownable {
         string calldata sourceAddress_,
         bytes calldata payload_
     ) internal override {
+        status = "received";
         (method) = abi.decode(payload_, (uint8));
         // Connect
         // Received when a new NFT wants to pair with us
@@ -113,6 +114,6 @@ contract InterchainNFT is AxelarExecutable, ERC721, Ownable {
             (method, newURI, tokenId) = abi.decode(payload_, (uint8, string, uint));
             _tokenURIs[tokenId] = newURI;
         } 
-        status = "received";
+        
     }
 }

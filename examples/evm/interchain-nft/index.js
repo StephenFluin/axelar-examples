@@ -67,10 +67,18 @@ async function execute(chains, wallet, options) {
     console.log('--- After Connection ---');
     await logValue();
 
+    console.log('--- After final Update --');
     let tx3 = await source.contract.update('https://new2.example.com/nft.json',0, {
         value: fee,
     });
     await tx3.wait();
+    do {
+        await sleep(1000);
+        method = await destination.contract.method();
+        // console.log('method is',method,typeof method);
+        // await logValue();
+    }
+        while (method <= 1);
 
     await logValue();
 
